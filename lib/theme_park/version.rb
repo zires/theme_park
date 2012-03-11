@@ -1,6 +1,6 @@
 # encoding: utf-8
 module ThemePark
-  module VERSION #:nodoc:
+  module Version #:nodoc:
     MAJOR = 0
     MINOR = 1
     TINY  = 0

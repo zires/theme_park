@@ -1,27 +1,17 @@
 # encoding: utf-8
 module ThemePark
-  # app/
-  # - themes
-  #   - [theme_name]
-  #     |- assets
-  #        |- images
-  #        |- javascripts
-  #        |- stylesheets
-  #        |- compiled           -> Compiled static files
-  #     |- views
-  #        |- layouts
-  #     
+  
   class Configuration
     
-    attr_reader   :root
+    # It is the root path for putting theme folders.
+    # In rails application, usual is "#{Rails.root}/themes/".
+    attr_accessor :root
+    
+    # The prefix is used to mount route.
     attr_accessor :prefix
 
-    def initialize(root, &block)
-      # It is the root path for putting theme folders.
-      # In rails application, usual is "#{Rails.root}/themes/".
-      @root = root
-      yield if block_given?
-    end
+    # The place contains images, javascripts, stylesheets, compiled files and view files.
+    attr_accessor :images_path, :javascripts_path, :stylesheets_path, :compiled_path, :views_path
 
   end
 

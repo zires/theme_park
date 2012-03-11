@@ -1,7 +1,8 @@
-source "https://rubygems.org"
-# Add dependencies required to use your gem here.
-# Example:
-gem "activesupport", ">= 3.1"
+source "http://ruby.taobao.org"  # For china
+#source "https://rubygems.org"
+
+gem 'activesupport', ">= 3.1"
+gem 'rack'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
