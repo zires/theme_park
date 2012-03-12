@@ -41,7 +41,7 @@ module ThemePark
       # We will not mount routes
       if config.serve_static_assets
         app.routes.prepend do
-          mount ThemePark::Rails::Server.new(app) => "#{ThemePark.prefix}/:theme_name"
+          mount ThemePark::Rails::Server.new(app, config.static_cache_control) => "#{ThemePark.prefix}/:theme_name"
         end
       end
     end
