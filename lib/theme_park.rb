@@ -2,8 +2,8 @@
 require 'active_support/core_ext/module/delegation'
 # 
 # convention over configuration.
+#
 # Rails application example:
-# 
 # app/
 # - themes
 #   - [theme_name]
