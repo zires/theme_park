@@ -10,5 +10,10 @@ group :development do
   gem "yard", "~> 0.7"
   gem "simplecov", "~> 0.6.1"
   gem "bundler", "~> 1.0.0"
-  gem "jeweler", "~> 1.8.3"
+end
+
+group :test do
+  gem 'minitest'
+  gem 'turn'
+  gem 'rails', ">= 3.1"
 end
