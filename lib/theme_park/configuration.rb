@@ -7,6 +7,10 @@ module ThemePark
     # In rails application, usual is "#{Rails.root}/themes/".
     attr_accessor :root
     
+    def root
+      @root.chomp('/')  
+    end
+
     # The prefix is used to mount route.
     attr_accessor :prefix
 

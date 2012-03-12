@@ -29,17 +29,16 @@ module ThemePark
 
   # Setup and return itself.
   def self.setup
-    @@config ||= ThemePark::Configuration.new
-    yield @@config if block_given?
-    self 
+    yield config if block_given?
+    self
   end
 
   class << self
 
-    delegate :root, :prefix, :to => :@@config
+    delegate :root, :prefix, :to => :config
 
     def config
-      @@config
+      @@config ||= ThemePark::Configuration.new
     end
 
     def version
@@ -112,7 +111,8 @@ module ThemePark
 
     # The assets path contains all themes' images, javascripts and stylesheets path.
     def assets_path
-      Dir.glob( File.join(root, "*") ).map do |theme_name|
+      Dir.glob( File.join(self.root, "*") ).map do |theme_name|
+        theme_name = File.basename(theme_name)
         theme_assets_path(theme_name)
       end.flatten
     end
