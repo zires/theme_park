@@ -16,4 +16,5 @@ group :test do
   gem 'minitest'
   gem 'turn'
   gem 'rails', ">= 3.1"
+  gem 'sqlite3'
 end

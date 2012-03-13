@@ -1,5 +1,5 @@
 require 'helper'
 
-class ServerTest < TestCase
+class ServerTest < MiniTest::Unit::TestCase
 
 end

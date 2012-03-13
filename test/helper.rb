@@ -30,22 +30,22 @@ Rails.backtrace_cleaner.remove_silencers!
 # $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 # require 'theme_park'
 
-class TestCase < MiniTest::Unit::TestCase
+# class TestCase < MiniTest::Unit::TestCase
   
-  def setup
-    @logic_path = File.dirname(__FILE__)
-    ThemePark.setup do |config|
-      config.root             = "#{@logic_path}/themes/"
-      config.prefix           = 'themes'
-      config.images_path      = ':root/:name/assets/images'
-      config.javascripts_path = ':root/:name/assets/javascripts'
-      config.stylesheets_path = ':root/:name/assets/stylesheets'
-      config.compiled_path    = ':root/:name/assets/compiled'
-      config.views_path       = ':root/:name/views'
-    end
-  end
+#   def setup
+#     @logic_path = File.dirname(__FILE__)
+#     ThemePark.setup do |config|
+#       config.root             = "#{@logic_path}/themes/"
+#       config.prefix           = 'themes'
+#       config.images_path      = ':root/:name/assets/images'
+#       config.javascripts_path = ':root/:name/assets/javascripts'
+#       config.stylesheets_path = ':root/:name/assets/stylesheets'
+#       config.compiled_path    = ':root/:name/assets/compiled'
+#       config.views_path       = ':root/:name/views'
+#     end
+#   end
 
-  def teardown
-  end
+#   def teardown
+#   end
   
-end
+# end

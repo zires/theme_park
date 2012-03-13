@@ -18,12 +18,11 @@ require 'active_support/core_ext/module/delegation'
 module ThemePark
   autoload :Configuration, 'theme_park/configuration'
   autoload :Version,       'theme_park/version'
-  autoload :Railtie,       'theme_park/railtie' if defined?(Rails)
   autoload :Server,        'theme_park/server'
 
   module Rails
     autoload :ActionController, 'theme_park/rails/action_controller'
-    autoload :ActionView,       'theme_park/rails/action_view'
+    autoload :AssetTagHelper,   'theme_park/rails/asset_tag_helper'
     autoload :Server,           'theme_park/rails/server'
   end
 
@@ -120,3 +119,5 @@ module ThemePark
   end
 
 end
+
+require 'theme_park/railtie' if defined?(Rails)
