@@ -1,6 +1,6 @@
 = theme_park
 
-Description goes here.
+Coming soon.
 
 == Contributing to theme_park
  

@@ -1,8 +1,14 @@
 # encoding: utf-8
 module ThemePark
   class Railtie < ::Rails::Railtie
+    
     rake_tasks do
-      #load "sprockets/assets.rake"
+      load "tasks/theme_park.rake"
+    end
+
+    generators do
+      require "generators/theme_park/install_generator"
+      require "generators/theme_park/create_generator"
     end
 
     initializer "ThemePark.environment", :group => :all do |app|
