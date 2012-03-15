@@ -6,7 +6,7 @@ class RailtieTest < ActiveSupport::TestCase
     theme_park = Dummy::Application.config.theme_park
     assert_equal(ThemePark, theme_park)
     assert_equal('themes', theme_park.prefix)
-    assert_equal("#{Dummy::Application.root}/themes", theme_park.root)
+    assert_equal("#{Dummy::Application.root}/themes", theme_park.base_root)
   end
 
   test 'action_view should load ThemePark::Rails::ActionView' do

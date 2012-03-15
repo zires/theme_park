@@ -5,13 +5,7 @@ class ThemeParkTest < MiniTest::Unit::TestCase
   def setup
     @logic_path = File.dirname(__FILE__)
     ThemePark.setup do |config|
-      config.root             = "#{@logic_path}/themes/"
-      config.prefix           = 'themes'
-      config.images_path      = ':root/:name/assets/images'
-      config.javascripts_path = ':root/:name/assets/javascripts'
-      config.stylesheets_path = ':root/:name/assets/stylesheets'
-      config.compiled_path    = ':root/:name/assets/compiled'
-      config.views_path       = ':root/:name/views'
+      config.base = @logic_path
     end
   end
 
@@ -19,7 +13,12 @@ class ThemeParkTest < MiniTest::Unit::TestCase
   end
 
   def test_root
-    assert_equal("#{@logic_path}/themes", ThemePark.root)
+    # default setting
+    assert_equal("/themes", ThemePark.root)
+  end
+
+  def test_base_root
+    assert_equal("#{@logic_path}/themes", ThemePark.base_root)
   end
 
   def test_prefix

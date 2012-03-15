@@ -34,7 +34,7 @@ module ThemePark
 
   class << self
 
-    delegate :root, :prefix, :to => :config
+    delegate :base, :root, :base_root, :prefix, :to => :config
 
     def config
       @@config ||= ThemePark::Configuration.new
@@ -46,7 +46,7 @@ module ThemePark
 
     # Return the path of given theme name.
     def path(theme_name)
-      File.join root, theme_name
+      File.join base_root, theme_name
     end
 
     def exist?(theme_name)
@@ -54,7 +54,7 @@ module ThemePark
     end
 
     def interpolate(pattern, theme_name)
-      pattern.gsub(":root", ThemePark.root).gsub(":name", theme_name.to_s)
+      pattern.gsub(":root", base_root).gsub(":name", theme_name.to_s)
     end
     
     ##
@@ -110,7 +110,7 @@ module ThemePark
 
     # The assets path contains all themes' images, javascripts and stylesheets path.
     def assets_path
-      Dir.glob( File.join(self.root, "*") ).map do |theme_name|
+      Dir.glob( File.join(self.base_root, "*") ).map do |theme_name|
         theme_name = File.basename(theme_name)
         theme_assets_path(theme_name)
       end.flatten

@@ -1,4 +1,4 @@
-#source "http://ruby.taobao.org"  # For china
-source "source http://rubygems.org"
+source "http://ruby.taobao.org"  # For china
+#source "http://rubygems.org"
 
 gemspec

@@ -21,13 +21,6 @@ begin
 rescue LoadError
 end
 
-# Require rails
-begin
-  require 'rails'
-rescue Exception => e
-  puts "=== Test environment need rails version above 3.1 ==="
-end
-
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
 

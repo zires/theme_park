@@ -17,7 +17,9 @@ module ThemePark
       
       # Because this is boot after initializer file.
       # So config/initializers/theme_park.rb must exist.
-      config.theme_park = ThemePark
+      config.theme_park = ThemePark.setup do |config|
+        config.base = ::Rails.root
+      end
 
       ActiveSupport.on_load(:action_view) do
         ActionView::Helpers::AssetTagHelper.send :include, ThemePark::Rails::AssetTagHelper

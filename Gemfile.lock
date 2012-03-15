@@ -1,3 +1,10 @@
+PATH
+  remote: .
+  specs:
+    theme_park (0.1.0.beta)
+      activesupport (>= 3.1)
+      rack
+
 GEM
   remote: http://ruby.taobao.org/
   specs:
@@ -36,7 +43,7 @@ GEM
     i18n (0.6.0)
     journey (1.0.3)
     json (1.6.5)
-    mail (2.4.3)
+    mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -69,10 +76,6 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
-    simplecov (0.6.1)
-      multi_json (~> 1.0)
-      simplecov-html (~> 0.5.3)
-    simplecov-html (0.5.3)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -92,12 +95,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (>= 3.1)
   bundler (~> 1.0.0)
   minitest
-  rack
   rails (>= 3.1)
-  simplecov (~> 0.6.1)
   sqlite3
+  theme_park!
   turn
   yard (~> 0.7)
