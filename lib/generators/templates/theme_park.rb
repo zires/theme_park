@@ -11,17 +11,16 @@
 #     |- views
 #        |- layouts
 #
-# Uncomment below lines if you really need to.
+# Change below lines if you really need to.
 # ===
-# ThemePark.setup do |config|
-#
-#   config.root             = "#{::Rails.root}/themes/"
-#   config.prefix           = 'themes'
-#   config.images_path      = ':root/:name/assets/images'
-#   config.javascripts_path = ':root/:name/assets/javascripts'
-#   config.stylesheets_path = ':root/:name/assets/stylesheets'
-#   config.compiled_path    = ':root/:name/assets/compiled'
-#   config.views_path       = ':root/:name/views'
-#
-# end
-# ===
+ThemePark.setup do |config|
+
+  config.root             = "#{::Rails.root}/themes/"
+  config.prefix           = 'themes'
+  config.images_path      = ':root/:name/assets/images'
+  config.javascripts_path = ':root/:name/assets/javascripts'
+  config.stylesheets_path = ':root/:name/assets/stylesheets'
+  config.compiled_path    = ':root/:name/assets/compiled'
+  config.views_path       = ':root/:name/views'
+
+end

@@ -14,16 +14,10 @@ module ThemePark
     initializer "ThemePark.environment", :group => :all do |app|
 
       config = app.config
-
-      config.theme_park = ThemePark.setup do |config|
-        config.root             = "#{::Rails.root}/themes/"
-        config.prefix           = 'themes'
-        config.images_path      = ':root/:name/assets/images'
-        config.javascripts_path = ':root/:name/assets/javascripts'
-        config.stylesheets_path = ':root/:name/assets/stylesheets'
-        config.compiled_path    = ':root/:name/assets/compiled'
-        config.views_path       = ':root/:name/views'
-      end
+      
+      # Because this is boot after initializer file.
+      # So config/initializers/theme_park.rb must exist.
+      config.theme_park = ThemePark
 
       ActiveSupport.on_load(:action_view) do
         ActionView::Helpers::AssetTagHelper.send :include, ThemePark::Rails::AssetTagHelper

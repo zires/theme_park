@@ -1,11 +1,6 @@
 # encoding: utf-8
 require 'fileutils'
 
-begin
-  require File.join(::Rails.root, 'config', 'initializers', 'theme_park.rb')
-rescue Exception => e
-end
-
 module ThemePark
   module Generators
     class CreateGenerator < ::Rails::Generators::Base
