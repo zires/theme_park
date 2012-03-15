@@ -1,6 +1,11 @@
 # encoding: utf-8
 require 'fileutils'
 
+begin
+  require File.join(::Rails.root, 'config', 'initializers', 'theme_park.rb')
+rescue Exception => e
+end
+
 module ThemePark
   module Generators
     class CreateGenerator < ::Rails::Generators::Base
@@ -15,17 +20,12 @@ module ThemePark
         ThemePark.theme_assets_path(name).each do |path|
           FileUtils.mkdir_p path
         end
-        copy_file "application.css", File.join( relative_path(ThemePark.stylesheets_path(name)), "#{name}.css" )
-        copy_file "application.js", File.join( relative_path(ThemePark.javascripts_path(name)), "#{name}.js" )
-        directory "layout", relative_path( ThemePark.views_path(name) )
-      end
+        FileUtils.mkdir_p ThemePark.views_path(name)
+        FileUtils.mkdir_p ThemePark.compiled_path(name)
 
-      private
-      ##
-      # '/var/www/{Your-app}/themes/...' #=> '/themes/...'
-      def relative_path(path)
-        path =~ /#{Rails.root}(.*)/
-        $1
+        copy_file "application.css", File.join( ThemePark.stylesheets_path(name), "#{name}.css" )
+        copy_file "application.js",  File.join( ThemePark.javascripts_path(name), "#{name}.js" )
+        directory "layouts",         File.join( ThemePark.views_path(name), "layouts" )
       end
 
     end

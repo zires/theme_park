@@ -14,8 +14,9 @@ Gem::Specification.new do |s|
   s.summary          = "Multiple theme plugin for rails3, sinatra, and more..."
   s.description      = "Multiple theme plugin for rails3, sinatra, and more..."
   s.date             = %q{2012-03-15}
-  
-  s.files            = `git ls-files`.split("\n")
+  s.extra_rdoc_files = ["LICENSE.txt", "README.rdoc"]
+
+  s.files            = Dir["{app,config,db,lib}/**/*"] + ["LICENSE.txt", "Rakefile", "README.rdoc"]
   s.test_files       = Dir["test/**/*"]
   s.require_paths    = [%q{lib}]
   s.licenses         = [%q{MIT}]
