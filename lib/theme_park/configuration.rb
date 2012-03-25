@@ -21,9 +21,14 @@ module ThemePark
     # The place contains images, javascripts, stylesheets, compiled files and view files.
     attr_accessor :images_path, :javascripts_path, :stylesheets_path, :compiled_path, :views_path
 
+    # Handlers.
+    # In some scenes, we may want only one or several handlers.
+    attr_accessor :handlers
+
     def initialize
       # Default settings
       @base             = ''
+      @handlers         = :all
       @root             = '/themes'
       @prefix           = 'themes'
       @images_path      = ':root/:name/assets/images'

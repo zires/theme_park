@@ -1,5 +1,17 @@
 # encoding: utf-8
 module ThemePark
+
+  # For rails, we need to resolve the handlers.
+  def self.resolve_views_path(name)
+    views_path = self.views_path(name)
+    if ThemePark.handlers.to_s != 'all'
+      handers = ThemePark.handlers.to_a.join(',')
+      ActionView::FileSystemResolver.new(views_path, ":prefix/:action{.:locale,}{.:formats,}{.{#{handers}},}")
+    else
+      views_path
+    end
+  end
+
   module Rails
     module ActionController
       extend ActiveSupport::Concern
@@ -12,7 +24,7 @@ module ThemePark
         # end
         # ===
         def theme(name, options = {})
-          path = ThemePark.views_path(name)
+          path = ThemePark.resolve_views_path(name)
           if options.empty?
             prepend_view_path path
           else
@@ -34,7 +46,7 @@ module ThemePark
       # end
       # ===
       def theme(name)
-        path = ThemePark.views_path(name)
+        path = ThemePark.resolve_views_path(name)
         prepend_view_path path
       end
       

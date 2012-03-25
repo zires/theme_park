@@ -16,6 +16,10 @@
 # ThemePark.setup do |config|
 #   
 #   config.root             = '/themes'
+#   config.handlers         = :all           # will load all handlers depends on your application.
+#   # other options for handlers
+#   # config.handlers       = [:liquid]      # only load .liquid
+#   # config.handlers       = [:erb, :haml]  # only load .erb and .haml
 #   config.prefix           = 'themes'
 #   config.images_path      = ':root/:name/assets/images'
 #   config.javascripts_path = ':root/:name/assets/javascripts'

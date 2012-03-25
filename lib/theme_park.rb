@@ -34,7 +34,7 @@ module ThemePark
 
   class << self
 
-    delegate :base, :root, :base_root, :prefix, :to => :config
+    delegate :base, :root, :base_root, :prefix, :handlers, :to => :config
 
     def config
       @@config ||= ThemePark::Configuration.new
