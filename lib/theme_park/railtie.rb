@@ -15,8 +15,6 @@ module ThemePark
 
       config = app.config
       
-      # Because this is boot after initializer file.
-      # So config/initializers/theme_park.rb must exist.
       config.theme_park = ThemePark.setup do |config|
         config.base = ::Rails.root
       end
