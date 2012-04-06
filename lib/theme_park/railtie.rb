@@ -20,11 +20,21 @@ module ThemePark
       end
 
       ActiveSupport.on_load(:action_view) do
-        ActionView::Helpers::AssetTagHelper.send :include, ThemePark::Rails::AssetTagHelper
+        include ThemePark::Rails::AssetTagHelper
+
+        # Make active_view can get current template's identifier.
+        # Uncomment when it is stable.
+        # require 'theme_park/rails/action_view/template_renderer'
       end
 
       ActiveSupport.on_load(:action_controller) do
         include ThemePark::Rails::ActionController
+
+        # Make active_view can get current template's identifier.
+        # Uncomment when it is stable.
+        # ActionController::Base.class_eval do
+        #   attr_accessor :current_template
+        # end
       end
 
       config.to_prepare do
