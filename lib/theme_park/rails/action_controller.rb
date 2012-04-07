@@ -25,12 +25,9 @@ module ThemePark
         # ===
         def theme(name, options = {})
           path = ThemePark.resolve_views_path(name)
-          if options.empty?
-            prepend_view_path path
-          else
-            before_filter(options) do |controller|
-              controller.prepend_view_path path
-            end
+          before_filter(options) do |controller|
+            @current_theme = name
+            controller.prepend_view_path path
           end
         end
 
@@ -46,7 +43,8 @@ module ThemePark
       # end
       # ===
       def theme(name)
-        path = ThemePark.resolve_views_path(name)
+        @current_theme = name
+        path           = ThemePark.resolve_views_path(name)
         prepend_view_path path
       end
       

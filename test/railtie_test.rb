@@ -10,7 +10,7 @@ class RailtieTest < ActiveSupport::TestCase
   end
 
   test 'action_view should load ThemePark::Rails::ActionView' do
-    assert ActionView::Helpers::AssetTagHelper < ThemePark::Rails::AssetTagHelper
+    assert ActionView::Base < ThemePark::Rails::AssetTagHelper
   end
 
   test 'action_controller should load ThemePark::Rails::ActionController' do
