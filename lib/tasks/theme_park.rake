@@ -13,7 +13,6 @@ namespace :theme_park do
     end
 
     theme    = ENV["theme"]
-    config   = ::Rails.application.config
     env      = ::Rails.application.assets
 
     themes = if theme
