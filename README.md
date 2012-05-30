@@ -2,7 +2,7 @@
 
 theme_park is a flexible multiple theme plugin for rails3, sinatra, and more...it's rack based
 
-### Getting started (Rails.version > 3)
+### Getting started (Rails.version > 3.1)
 
 Add it to your Gemfile.
 

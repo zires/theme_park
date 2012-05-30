@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email            = ["zshuaibin@gmail.com"]
   s.homepage         = "http://github.com/zires/theme_park"
   s.summary          = "Multiple theme plugin for rails3, sinatra, and more..."
-  s.description      = "Multiple theme plugin for rails3, sinatra, and more..."
+  s.description      = "theme_park is a flexible multiple theme plugin for rails3, sinatra, and more...it's rack based"
   s.date             = %q{2012-03-15}
   s.extra_rdoc_files = ["LICENSE.txt", "README.rdoc"]
 
