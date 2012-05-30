@@ -59,7 +59,7 @@ class MyController < ApplicationController
 end
 ```
 
-Like rails3.1 need precompile asset files in the production environment, we need precompile theme asset files.
+Like rails3.1 need precompile asset files in the production environment, we also need precompile theme asset files.
 
 ```console
 rake theme_park:precompile theme=dark
