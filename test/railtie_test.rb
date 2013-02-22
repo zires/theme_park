@@ -17,10 +17,6 @@ class RailtieTest < ActiveSupport::TestCase
     assert ActionController::Base < ThemePark::Rails::ActionController
   end
 
-  test 'config.assets.paths should include ThemePark.assets_path' do
-    assert Dummy::Application.config.assets.paths.include?("#{File.dirname(__FILE__)}/dummy/themes/default/assets/images")
-  end
-
   test 'rails app route should mount at #{ThemePark.prefix}/:theme_name' do
     routes = Dummy::Application.routes.routes
     server = routes.select { |r| r.app.instance_of?(ThemePark::Rails::Server) }.pop

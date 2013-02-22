@@ -21,5 +21,21 @@ module ThemePark
       ::Rack::File.new(path, @cache_control)
     end
 
+    private
+
+    # Copy form ::Rack::File#fail
+    def fail(status, body)
+      body += "\n"
+      [
+        status,
+        {
+          "Content-Type" => "text/plain",
+          "Content-Length" => body.size.to_s,
+          "X-Cascade" => "pass"
+        },
+        [body]
+      ]
+    end
+
   end
 end

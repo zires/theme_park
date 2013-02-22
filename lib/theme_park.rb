@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'active_support/core_ext/module/delegation'
 # 
 # convention over configuration.
@@ -26,18 +25,30 @@ module ThemePark
     autoload :Server,           'theme_park/rails/server'
   end
 
-  # Setup and return itself.
-  def self.setup
-    yield config if block_given?
-    self
-  end
-
   class << self
 
     delegate :base, :root, :base_root, :prefix, :handlers, :to => :config
 
     def config
       @@config ||= ThemePark::Configuration.new
+    end
+
+    def setup
+      yield config if block_given?
+      self
+    end
+
+    def env
+      @@env ||= Sprockets::Environment.new(base.to_s) do |env|
+        env.version = ::Rails.env
+        env.cache   = Sprockets::Cache::FileStore.new "#{base}/tmp/cache/assets/#{::Rails.env}"
+      end
+    end
+
+    def assets(name)
+      env.clear_paths
+      assets_path(name).each{|path| env.append_path path }
+      env
     end
 
     def version
@@ -104,15 +115,14 @@ module ThemePark
     end
 
     # The theme assets path is a array contains images, javascripts and stylesheets path.
-    def theme_assets_path(theme_name)
-      [ images_path(theme_name), javascripts_path(theme_name), stylesheets_path(theme_name) ]
+    def assets_path(name)
+      [ images_path(name), javascripts_path(name), stylesheets_path(name) ]
     end
 
     # The assets path contains all themes' images, javascripts and stylesheets path.
-    def assets_path
+    def all_assets_path
       Dir.glob( File.join(self.base_root, "*") ).map do |theme_name|
-        theme_name = File.basename(theme_name)
-        theme_assets_path(theme_name)
+        assets_path( File.basename(theme_name) )
       end.flatten
     end
 

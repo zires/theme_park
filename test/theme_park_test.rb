@@ -63,7 +63,7 @@ class ThemeParkTest < MiniTest::Unit::TestCase
     assets_path = [ "#{@logic_path}/themes/default/assets/images", 
                     "#{@logic_path}/themes/default/assets/javascripts", 
                     "#{@logic_path}/themes/default/assets/stylesheets"]
-    assert_equal(assets_path, ThemePark.theme_assets_path('default'))
+    assert_equal(assets_path, ThemePark.assets_path('default'))
   end
 
   def test_assets_path
@@ -73,7 +73,7 @@ class ThemeParkTest < MiniTest::Unit::TestCase
                     "#{@logic_path}/themes/default1/assets/images",
                     "#{@logic_path}/themes/default1/assets/javascripts",
                     "#{@logic_path}/themes/default1/assets/stylesheets"].sort
-    assert_equal(assets_path, ThemePark.assets_path.sort)     
+    assert_equal(assets_path, ThemePark.all_assets_path.sort)     
   end
   
 end

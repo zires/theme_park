@@ -1,6 +1,4 @@
-# encoding: utf-8
 module ThemePark
-
   # For rails, we need to resolve the handlers.
   def self.resolve_views_path(name)
     views_path = self.views_path(name)

@@ -1,9 +1,7 @@
-# encoding: utf-8
 module ThemePark
-  
   class Configuration
     
-    # It is the base path for putting themes folder.
+    # The base path for putting themes folder.
     # For example in rails application is:
     # === 
     # Rails.root

@@ -15,8 +15,8 @@ module ThemePark
 
       config = app.config
       
-      config.theme_park = ThemePark.setup do |config|
-        config.base = ::Rails.root
+      config.theme_park = ThemePark.setup do |c|
+        c.base = ::Rails.root
       end
 
       ActiveSupport.on_load(:action_view) do
@@ -26,15 +26,6 @@ module ThemePark
       ActiveSupport.on_load(:action_controller) do
         include ThemePark::Rails::ActionController
       end
-
-      config.to_prepare do
-        # append assets path if enabled
-        if config.assets.enabled
-          ThemePark.assets_path.each do |path|
-            config.assets.paths << path
-          end
-        end
-      end #config.to_prepare
 
       config.after_initialize do |app|
         # If rails's static asset server is disabled.
